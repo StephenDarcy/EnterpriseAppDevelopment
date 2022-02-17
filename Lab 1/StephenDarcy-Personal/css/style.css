@@ -19,7 +19,7 @@
 	Global Styles
 ========================================================================== */
 a {
-  color: #e04343;
+  color: #59a5a9;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -166,7 +166,7 @@ dfn {
   font-style: italic;
 }
 mark {
-  background: #ff0;
+  background: #f1f1cc;
   color: #000;
 }
 p,
@@ -330,16 +330,16 @@ table {
 }
 .dark-box {
   background: #f3f5f8;
-  -webkit-box-shadow: 0px 3px 0px 0px #e04343;
-  -moz-box-shadow: 0px 3px 0px 0px #e04343;
-  box-shadow: 0px 3px 0px 0px #e04343;
+  -webkit-box-shadow: 0px 3px 0px 0px #59a5a9;
+  -moz-box-shadow: 0px 3px 0px 0px #59a5a9;
+  box-shadow: 0px 3px 0px 0px #59a5a9;
   padding: 20px 0;
 }
 .dark-box:hover,
 .dark-box:focus {
-  -webkit-box-shadow: 0px 3px 0px 0px #ffe801;
-  -moz-box-shadow: 0px 3px 0px 0px #ffe801;
-  box-shadow: 0px 3px 0px 0px #ffe801;
+  -webkit-box-shadow: 0px 3px 0px 0px #f1f1cc;
+  -moz-box-shadow: 0px 3px 0px 0px #f1f1cc;
+  box-shadow: 0px 3px 0px 0px #f1f1cc;
 }
 .box-hover {
   transition: all 500ms ease-in-out;
@@ -369,7 +369,7 @@ table {
 }
 .menu-wrap a:hover,
 .menu-wrap a:focus {
-  color: #e04343;
+  color: #59a5a9;
 }
 .content-wrap {
   overflow-y: scroll;
@@ -411,14 +411,14 @@ table {
   bottom: 0.5em;
   left: 0.5em;
   background: linear-gradient(
-    #e04343 20%,
+    #59a5a9 20%,
     rgba(0, 0, 0, 0) 20%,
     rgba(0, 0, 0, 0) 40%,
-    #e04343 40%,
-    #e04343 60%,
+    #59a5a9 40%,
+    #59a5a9 60%,
     rgba(0, 0, 0, 0) 60%,
     rgba(0, 0, 0, 0) 80%,
-    #e04343 80%
+    #59a5a9 80%
   );
   content: "";
 }
@@ -474,7 +474,7 @@ table {
   transform: translate3d(0, 0, 0);
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
-  border-bottom: 1px solid #e04343;
+  border-bottom: 1px solid #59a5a9;
 }
 .show-menu .icon-list a {
   opacity: 1;
@@ -526,7 +526,7 @@ table {
   margin: 0;
   padding: 0;
   opacity: 0.5;
-  color: #e04343;
+  color: #59a5a9;
   letter-spacing: 18px;
   line-height: 50px;
   text-transform: uppercase;
@@ -623,7 +623,7 @@ h1.arrow {
   font-weight: bold;
 }
 h1.arrow span {
-  color: #e04343;
+  color: #59a5a9;
 }
 /* ==========================================================================About========================================================================== */
 .about-image {
@@ -634,11 +634,11 @@ h1.arrow span {
   background-size: cover;
 }
 .color-bg {
-  background: #e04343;
+  background: #59a5a9;
 }
 
 .color-bg a {
-  color: #ffe800;
+  color: #f1f1cc;
 }
 .color-bg h6,
 .color-bg p {
@@ -653,7 +653,7 @@ h1.arrow span {
 }
 .color-bg .weight-outline-btn:hover {
   background: #fff;
-  color: #e04343;
+  color: #59a5a9;
   border-color: rgba(0, 0, 0, 0);
 }
 .about-text {
@@ -665,7 +665,7 @@ h1.arrow span {
   color: #8c8c8c;
 }
 .color-bg h1.arrow span {
-  color: #ffe800;
+  color: #f1f1cc;
 }
 .color-bg h1.arrow {
   color: #fff;
@@ -689,12 +689,12 @@ h1.arrow span {
   margin-bottom: 40px;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  border: 1px solid #e04343;
-  color: #e04343;
+  border: 1px solid #59a5a9;
+  color: #59a5a9;
 }
 .services .item:hover .icon {
-  background: #e04343;
-  border: 1px solid #e04343;
+  background: #59a5a9;
+  border: 1px solid #59a5a9;
 }
 .services .item [class*="fa"] {
   -webkit-transition: all 0.3s ease-out;
@@ -903,7 +903,7 @@ img.grayscale:hover {
 }
 .subscribe input[type="text"] {
   background-color: rgba(255, 255, 255, 0.1);
-  border: solid 1px #ffe800;
+  border: solid 1px #f1f1cc;
   padding: 20px;
   width: 30%;
   color: #808080;
@@ -913,10 +913,10 @@ img.grayscale:hover {
   outline: none;
 }
 .subscribe input[type="submit"] {
-  background: #ffe800;
-  border: solid 1px #ffe800;
+  background: #f1f1cc;
+  border: solid 1px #f1f1cc;
   padding: 20px;
-  color: #e04343;
+  color: #59a5a9;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.5s ease;
@@ -925,29 +925,29 @@ img.grayscale:hover {
   -o-transition: all 0.5s ease;
 }
 .subscribe input[type="submit"]:hover {
-  background: rgba(255, 232, 0, 0.9);
-  border: solid 1px #ffe800;
-  color: #e04343;
+  background: #f1f1cc;
+  border: solid 1px #f1f1cc;
+  color: #59a5a9;
 }
 /* ==========================================================================CTA========================================================================== */
 .spacer-cta {
-  background-color: #e04343;
+  background-color: #59a5a9;
   padding: 70px 0;
 }
 .outline-btn {
   display: inline-block;
   padding: 25px 40px;
-  color: #ffe801;
-  border: solid 1px #ffe801;
+  color: #f1f1cc;
+  border: solid 1px #f1f1cc;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
 }
 .outline-btn:hover,
 .outline-btn:focus {
-  color: #e04343;
-  border: solid 1px #e04343;
-  background: #ffe801;
+  color: #59a5a9;
+  border: solid 1px #59a5a9;
+  background: #f1f1cc;
 }
 .weight-outline-btn {
   display: inline-block;
@@ -982,7 +982,7 @@ ul.social-buttons li:last-child {
 .social-btn {
   width: 40px;
   height: 40px;
-  background: #e04343;
+  background: #59a5a9;
   display: inline-block;
   color: #fff;
   font-size: 17px;
@@ -991,8 +991,8 @@ ul.social-buttons li:last-child {
 }
 .social-btn:hover,
 .social-btn:focus {
-  background: rgba(255, 232, 0, 1);
-  color: #e04343;
+  background: #f1f1cc;
+  color: #59a5a9;
 }
 .social {
   margin-top: 25px;
@@ -1001,10 +1001,10 @@ ul.social-buttons li:last-child {
 .up-btn {
   width: 55px;
   height: 55px;
-  background: rgba(255, 232, 1, 0.9);
+  background: #f1f1cc;
   display: block;
   margin: 0 auto;
-  color: #e04343;
+  color: #59a5a9;
   font-size: 18px;
   line-height: 52px;
   text-align: center;
@@ -1018,7 +1018,7 @@ ul.social-buttons li:last-child {
 .up-btn:hover,
 up-btn:focus {
   color: black;
-  background: #ffe800;
+  background: #f1f1cc;
 }
 .contact-details {
   margin: 70px 0;
@@ -1071,7 +1071,7 @@ up-btn:focus {
 }
 
 .btn-send {
-  background: #e04343;
+  background: #59a5a9;
   color: white;
   transition: all 0.4s;
   border-radius: 0;
@@ -1079,8 +1079,8 @@ up-btn:focus {
 }
 
 .btn-send:hover {
-  background: #ffe800;
-  color: #e04343;
+  background: #f1f1cc;
+  color: #59a5a9;
 }
 
 button,
@@ -1142,8 +1142,8 @@ ul.slides li {
   font-weight: bold;
 }
 .flex-control-paging li a.flex-active {
-  background: #e04343;
-  border-color: #e04343;
+  background: #59a5a9;
+  border-color: #59a5a9;
 }
 
 .color-bg .flex-control-paging li a {
@@ -1152,8 +1152,8 @@ ul.slides li {
 }
 
 .color-bg .flex-control-paging li a.flex-active {
-  background: #ffe800;
-  border-color: #ffe800;
+  background: #f1f1cc;
+  border-color: #f1f1cc;
 }
 /* ==========================================================================Waypoints========================================================================== */
 .wp1,
@@ -1312,4 +1312,15 @@ ul.slides li {
   .subscribe {
     padding-bottom: 40px;
   }
+}
+
+td {
+  text-align: left;
+}
+
+.table-subheading {
+  background-color: #f1f1cc !important;
+  font-size: larger;
+  text-align: left;
+  font-style: italic;
 }
