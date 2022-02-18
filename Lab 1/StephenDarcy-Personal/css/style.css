@@ -1324,3 +1324,15 @@ td {
   text-align: left;
   font-style: italic;
 }
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 980px) {
+  .flex-row {
+    flex-direction: column;
+  }
+}

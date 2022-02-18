@@ -231,8 +231,9 @@
                 <h1 class="arrow">My previous employers</h1>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
+            <br />
+            <div class="row flex-row">
+              <div class="col-md-4">
                 <img
                   src="./img/Rounded/google.png"
                   class="img-circle"
@@ -241,11 +242,45 @@
                   height="304"
                 />
               </div>
-              <div class="col-md-6">
+              <br />
+              <div class="col-md-4">
                 <img
                   src="./img/Rounded/amazon.jpg"
                   class="img-circle"
-                  alt="Google"
+                  alt="amazon"
+                  width="304"
+                  height="304"
+                />
+              </div>
+            </div>
+            <br />
+            <br />
+            <div class="row flex-row">
+              <div class="col-md-4">
+                <img
+                  src="./img/Rounded/fidelity.png"
+                  class="img-circle"
+                  alt="fidelity"
+                  width="304"
+                  height="304"
+                />
+              </div>
+              <br />
+              <div class="col-md-4">
+                <img
+                  src="./img/Rounded/air.jpg"
+                  class="img-circle"
+                  alt="airbnb"
+                  width="304"
+                  height="304"
+                />
+              </div>
+              <br />
+              <div class="col-md-4">
+                <img
+                  src="./img/Rounded/sap.png"
+                  class="img-circle"
+                  alt="SAP"
                   width="304"
                   height="304"
                 />
@@ -268,7 +303,7 @@
       <div class="container">
         <!-- Headline -->
         <div class="row">
-          <h1 class="arrow">Recent <span>Porojects</span></h1>
+          <h1 class="arrow">Recent <span>Projects</span></h1>
         </div>
       </div>
     </section>
@@ -433,7 +468,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <a href="index.html#contact" class="outline-btn">hire john doe</a>
+            <a href="index.html#contact" class="outline-btn"
+              >hire Stephen Darcy</a
+            >
           </div>
         </div>
       </div>
@@ -501,6 +538,15 @@
                 <td>Entire page</td>
                 <td>The secondary colour was changed from yellow to beige</td>
               </tr>
+              <tr>
+                <td>Rounded images</td>
+                <td>Service section</td>
+                <td>
+                  5 rounded logos are center aligned in two rows, using a flex
+                  box and columns to distance them evenly. Used a @media query
+                  to resize on smaller screens
+                </td>
+              </tr>
               <!-- Content/Image Improvements -->
               <tr>
                 <td class="table-subheading">Content/Image Improvements</td>
@@ -534,6 +580,23 @@
                   <a
                     href="https://img.search.brave.com/6xXudNsrZbMLvVIDm1dmMIP4kcdlq08Ak-z1LFQW2Jo/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDI4NjA1/MTAucG5n"
                     >Google logo</a
+                  >,
+                  <a
+                    href="https://img.search.brave.com/1UnThUb0PUWZALhNoxd1UmDPnXYlnylKOnSdF9TABEc/rs:fit:1200:800:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaWRnZXNnLm5l/dC9pbWFnZXMvYXJ0/aWNsZS8yMDE5LzEx/L2FtYXpvbi1sb2dv/LTEwMDgxOTU3Ny1s/YXJnZS5qcGc"
+                    >Amazon logo</a
+                  >,
+                  <a
+                    href="https://img.search.brave.com/AaY2vvJBmqZLavWuE-5dsteogqFuIMrf7MaguqrdZNs/rs:fit:1024:1024:1/g:ce/aHR0cHM6Ly93d3cu/bW90aXZhdGlvbmFs/LXNwZWFrZXItc3Vj/Y2Vzcy5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMTcvMDYv/RmlkZWxpdHktbG9n/by5wbmc"
+                    >Fidelity logo</a
+                  >,
+                  <a
+                    href="https://img.search.brave.com/17tu8uc3CtSJYfwVvqCa0bfi-3HS5CXWvKKDyQqGxwk/rs:fit:900:900:1/g:ce/aHR0cHM6Ly9sb2dv/ZGl4LmNvbS9sb2dv/LzYzNDYuanBn"
+                    >AirBNB logo</a
+                  >
+                  and the
+                  <a
+                    href="https://img.search.brave.com/kzm_YirWdWhRkb9SHN7qpsoa5PYYMwTXqhNqZAuLYEk/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/dW5pYy5jb20vLS9t/ZWRpYS9jb3Jwb3Jh/dGUvdW5pYy8wNC1s/b2dvLzEwLXBhcnRu/ZXIvMTAtaGVyby9o/ZXJvLXNhcC1oeWJy/aXMvaGVyby1zYXAt/Y2xvdWQucG5nP2xh/PWVuJm13PTIwMDAm/dnM9MiZoYXNoPThF/MTIzQjE0NDgyQjY5/QzFCMjg2MEVERkRB/Qzk2MTg3NzQ3MzE1/OEE"
+                    >SAP logo</a
                   >
                 </td>
               </tr>
@@ -774,71 +837,10 @@
     <script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
     <!-- Lightbox.js -->
     <script src="assets/lightbox/js/lightbox.min.js"></script>
-    <!-- Google Maps -->
-    <script
-      type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeKBBPJTG3v5w3cNPAgM6ZsJiPyL1mP_o&amp;sensor=false"
-    ></script>
+
     <!-- Theme JavaScript Core -->
     <script src="js/main.js"></script>
     <script src="js/script.js"></script>
-
-    <!-- GOOGLE MAPS DATA -->
-    <script type="text/javascript">
-      // When the window has finished loading create our google map below
-      google.maps.event.addDomListener(window, "load", init);
-
-      function init() {
-        // Basic options for a simple Google Map
-        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-        var mapOptions = {
-          // How zoomed in you want the map to start at (always required)
-          zoom: 15,
-
-          scrollwheel: false,
-
-          // The latitude and longitude to center the map (always required)
-          center: new google.maps.LatLng(40.68961985411178, -74.01618003845215), // New York
-
-          // How you would like to style the map.
-          // This is where you would paste any style found on Snazzy Maps.
-          styles: [
-            {
-              featureType: "water",
-              stylers: [{ color: "#F2F2F2" }, { visibility: "on" }],
-            },
-            { featureType: "landscape", stylers: [{ color: "#FFFFFF" }] },
-            {
-              featureType: "road",
-              stylers: [{ saturation: -100 }, { lightness: 45 }],
-            },
-            {
-              featureType: "road.highway",
-              stylers: [{ visibility: "simplified" }],
-            },
-            {
-              featureType: "road.arterial",
-              elementType: "labels.icon",
-              stylers: [{ visibility: "off" }],
-            },
-            {
-              featureType: "administrative",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#ADADAD" }],
-            },
-            { featureType: "transit", stylers: [{ visibility: "off" }] },
-            { featureType: "poi", stylers: [{ visibility: "off" }] },
-          ],
-        };
-
-        // Get the HTML DOM element that will contain your map
-        // We are using a div with id="map" seen below in the <body>
-        var mapElement = document.getElementById("googlemaps");
-
-        // Create the Google Map using out element and options defined above
-        var map = new google.maps.Map(mapElement, mapOptions);
-      }
-    </script>
 
     <!-- TEXT ROTATOR SETTINGS -->
     <script type="text/javascript">
