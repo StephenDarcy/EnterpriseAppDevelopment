@@ -1336,3 +1336,51 @@ td {
     flex-direction: column;
   }
 }
+
+.content-box {
+  border: 2px solid #59a5a9;
+  border-radius: 20px;
+  height: 70vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+#user-picture {
+  height: 40vh;
+  border-bottom: 2px solid #59a5a9;
+}
+
+.info-row {
+  border-bottom: 2px solid #59a5a9;
+}
+
+.repo-item {
+  height: 16vh;
+  border-bottom: 2px solid #59a5a9;
+  padding: 2.5%;
+  color: black;
+  font-size: x-large;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.repos-list {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 95%;
+  list-style-type: none;
+  padding: 0;
+}
+
+#avatar {
+  height: 80%;
+  text-align: center;
+}
+
+#picture {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
