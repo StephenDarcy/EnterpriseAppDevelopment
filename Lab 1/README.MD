@@ -11,13 +11,13 @@ Below is a detailed description of the changes which is also displayed on my sit
 - Changed title from John Doe to Stephen Darcy
 - Changed blog section to my improvements
 - Added title=&quot;menu-button&quot; to menu button as buttons must have discernible text
-- Added aria-label=&quot;slider button&quot; to slider button \&lt;a\&gt; element as all links must have discernible text
-- Edited animated header headline \&lt;h1\&gt; tag to display my name rather than John Doe
-- Edited \&lt;h3\&gt; animated \&lt;span\&gt; to my professions
+- Added aria-label=&quot;slider button&quot; to slider button a element as all links must have discernible text
+- Edited animated header headline h1 tag to display my name rather than John Doe
+- Edited h3 animated span to my professions
 - Edited about me welcome text to some text about myself instead.
 - Changing services for the client&#39;s section to describe my work instead.
 - Changed font awesome icon in services section to a user icon rather than a camera
-- Added descriptions for the 3 future areas of work: Scrum master, web designer, full-stack0 developer
+- Added descriptions for the 3 future areas of work: Scrum master, web designer, full-stack developer
 - Modified the services section – replacing the second part with rounded images
 - Removed the message and google maps section
 - Changed the blog to a striped table which features my improvements
@@ -27,9 +27,9 @@ Below is a detailed description of the changes which is also displayed on my sit
 - Removed portfolio images and replaced with my GitHub
 - Removed client section to replace it with a carousel of images
 - Added a jumbotron to the contact me section
-- Removed the input and replaced with a bootstrap button for the newsletter section
+- Removed the input and replaced it with a bootstrap button for the newsletter section
 - Added a panel above the carousel and my YouTube video
-- Added a youtube video displaying some of my work
+- Added a YouTube video displaying some of my work
 
 **Favicon.ico**
 
