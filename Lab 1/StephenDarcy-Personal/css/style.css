@@ -1340,13 +1340,13 @@ td {
 .content-box {
   border: 2px solid #59a5a9;
   border-radius: 20px;
-  height: 70vh;
+  height: 50vh;
   background-color: white;
   overflow: hidden;
 }
 
 #user-picture {
-  height: 40vh;
+  height: 20vh;
   border-bottom: 2px solid #59a5a9;
 }
 
@@ -1383,4 +1383,13 @@ td {
   display: inline-block;
   background-repeat: no-repeat;
   background-size: 100%;
+}
+
+.send-button {
+  height: 3.5rem;
+  border: 1px solid #f1f1cc;
+}
+
+body {
+  overflow-x: hidden;
 }
