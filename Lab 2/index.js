@@ -5,9 +5,15 @@ var tableArray = new Array(7);
 
 $(document).ready(function () {
   $(".data-table").hide();
+  $("#paragraph").hide();
+
+  $("#dark-mode-btn").click(function () {
+    toggleTheme();
+  });
 
   $("#load-btn").click(function () {
     $("#load-btn").hide();
+    $("#paragraph").show();
     $("#paragraph").append("The folder 'country-objects' has been read");
     getData();
     setTimeout(function () {
@@ -19,6 +25,11 @@ $(document).ready(function () {
     }, 5000);
   });
 });
+
+let toggleTheme = () => {
+  console.log("test");
+  $("#body").toggleClass("dark-mode");
+};
 
 let populateTable = () => {
   var tableBody = document.getElementById("table-body");

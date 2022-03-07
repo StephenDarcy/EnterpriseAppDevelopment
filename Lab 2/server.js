@@ -12,11 +12,11 @@ var fs = require("fs"),
 http
   .createServer(function (req, res) {
     // use fs module to send the requested file
-    fs.readFile(__dirname + req.url, function (err, data) {
-      if (err) {
+    fs.readFile(__dirname + req.url, function (error, data) {
+      if (error) {
         // if error send 404
         res.writeHead(404);
-        res.end(JSON.stringify(err));
+        res.end(JSON.stringify(error));
         return;
       }
       // else send 200 and the data

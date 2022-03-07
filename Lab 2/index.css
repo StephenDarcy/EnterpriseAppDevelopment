@@ -1,5 +1,9 @@
-body {
+#body {
   background-color: #444444;
+}
+
+#body.dark-mode {
+  background-color: white;
 }
 
 #info-box {
@@ -22,5 +26,9 @@ img {
   background-color: #212529;
 }
 
-.data-table {
+.buttons {
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-top: 23%;
+  margin-left: 0%;
 }
