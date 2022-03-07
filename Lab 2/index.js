@@ -4,10 +4,19 @@ var capitals, continents, costlines, currencies, domains, flags;
 var tableArray = new Array(7);
 
 $(document).ready(function () {
+  $(".data-table").hide();
+
   $("#load-btn").click(function () {
+    $("#load-btn").hide();
+    $("#paragraph").append("The folder 'country-objects' has been read");
     getData();
-    createArray();
-    populateTable();
+    setTimeout(function () {
+      createArray();
+      populateTable();
+      $(".data-table").show();
+      $("#paragraph").html("");
+      $("#paragraph").append("The table has been created");
+    }, 5000);
   });
 });
 
@@ -39,37 +48,31 @@ let populateArray = (country, column) => {
   var currentElement;
 
   switch (column) {
-    // case to get capitals data for col 1
     case 1:
       currentDataset = capitals;
       currentElement = "city";
       break;
 
-    // case to get continents data for col 2
     case 2:
       currentDataset = continents;
       currentElement = "continent";
       break;
 
-    // case to get costlines date for col 3
     case 3:
       currentDataset = costlines;
       currentElement = "costline";
       break;
 
-    // case to get currency data for col 4
     case 4:
       currentDataset = currencies;
       currentElement = "currency_name";
       break;
 
-    // case to get domain data for col 5
     case 5:
       currentDataset = domains;
       currentElement = "tld";
       break;
 
-    // case to get flag data for col 6
     case 6:
       currentDataset = flags;
       currentElement = "flag_base64";

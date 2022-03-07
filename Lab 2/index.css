@@ -12,3 +12,15 @@ body {
   background-color: #49e20e;
   margin: 10%;
 }
+
+img {
+  width: 50%;
+}
+
+.table-div {
+  border-radius: 10px;
+  background-color: #212529;
+}
+
+.data-table {
+}
