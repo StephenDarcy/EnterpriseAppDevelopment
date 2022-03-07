@@ -1,0 +1,14 @@
+body {
+  background-color: #444444;
+}
+
+#info-box {
+  margin-top: 10%;
+  background-color: #2069e0;
+  color: white;
+}
+
+.load-btn {
+  background-color: #49e20e;
+  margin: 10%;
+}
