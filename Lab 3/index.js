@@ -8,10 +8,14 @@ let darkMode = true;
 let buttonShown,
   paragraphShown,
   tableShown = true;
+// cells that user clicks to change colour
+var currentCell;
+var previousCell;
 
 $(document).ready(function () {
   $(".data-table").hide();
   $("#paragraph").hide();
+  $("#collapse-btn").hide();
 
   $("#dark-mode-btn").click(function () {
     toggleTheme();
@@ -59,7 +63,21 @@ $(document).ready(function () {
       $(".data-table").show();
       $("#paragraph").html("");
       $("#paragraph").append("The table has been created");
+      $("#collapse-btn").show();
     }, 5000);
+  });
+
+  $("body").on("click", "#country-table tr td", function () {
+    currentCell = $(this);
+
+    if (previousCell) {
+      previousCell.css("background-color", "#212529");
+      currentCell.css("background-color", "red");
+    } else {
+      currentCell.css("background-color", "red");
+    }
+    previousCell = currentCell;
+    console.log(currentCell);
   });
 });
 
@@ -78,8 +96,13 @@ let populateTable = () => {
   var tableBody = document.getElementById("table-body");
   for (let i = 0; i < tableArray.length; i++) {
     var tableRow = document.createElement("tr");
+    if (i >= 19) {
+      tableRow.classList.add("collapse", "row-collapse");
+    }
+    tableRow.setAttribute("row", i + 1);
     for (let j = 0; j < tableArray[i].length; j++) {
       var td = document.createElement("td");
+
       // for images
       if (j == 6) {
         td.innerHTML = "<img src='" + tableArray[i][j] + "'>";
@@ -87,6 +110,7 @@ let populateTable = () => {
         td.appendChild(document.createTextNode(tableArray[i][j]));
       }
       tableRow.appendChild(td);
+      td.setAttribute("cell", j + 1);
     }
     tableBody.appendChild(tableRow);
   }
