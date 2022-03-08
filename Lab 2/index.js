@@ -2,6 +2,12 @@
 var capitals, continents, costlines, currencies, domains, flags;
 // create 1d array width of table
 var tableArray = new Array(7);
+// default value of css theme
+let darkMode = true;
+// default values of hidden elements
+let buttonShown,
+  paragraphShown,
+  tableShown = true;
 
 $(document).ready(function () {
   $(".data-table").hide();
@@ -9,6 +15,37 @@ $(document).ready(function () {
 
   $("#dark-mode-btn").click(function () {
     toggleTheme();
+  });
+
+  $("#hide-paragraph-btn").click(function () {
+    if (!paragraphShown) {
+      $("#info-box").hide();
+      $("#hide-paragraph-btn").html("Show Paragraph");
+    } else {
+      $("#info-box").show();
+      $("#hide-paragraph-btn").html("Hide Paragraph");
+    }
+    paragraphShown = !paragraphShown;
+  });
+
+  $("#hide-table-btn").click(function () {
+    if (!tableShown) {
+      $("#table").hide();
+      $("#hide-table-btn").html("Show Table");
+    } else {
+      $("#table").show();
+      $("#hide-table-btn").html("Hide Table");
+    }
+    tableShown = !tableShown;
+  });
+
+  $("#fade-nav-btn").click(function () {
+    $("#navbar").fadeToggle();
+    $("#hide-table-btn").html("Hide Table");
+  });
+
+  $("#fade-table-btn").click(function () {
+    $("#table").fadeToggle();
   });
 
   $("#load-btn").click(function () {
@@ -29,6 +66,12 @@ $(document).ready(function () {
 let toggleTheme = () => {
   console.log("test");
   $("#body").toggleClass("dark-mode");
+  darkMode = !darkMode;
+  if (darkMode) {
+    $("#dark-mode-btn").html("Light Mode");
+  } else {
+    $("#dark-mode-btn").html("Dark Mode");
+  }
 };
 
 let populateTable = () => {

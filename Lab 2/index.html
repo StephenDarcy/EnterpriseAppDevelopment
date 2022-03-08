@@ -16,11 +16,11 @@
     />
     <link rel="stylesheet" type="text/css" href="index.css" />
 
-    <title>Hello, world!</title>
+    <title>JSON with AJAX</title>
   </head>
 
   <body id="body">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Accessing JSON with AJAX</span>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,16 +41,23 @@
         <div class="row">
           <div class="col">
             <div class="btn-group-vertical buttons">
-              <button type="button" id="dark-mode-btn" class="btn btn-primary">Toggle Dark Mode</button>
-              <button type="button" class="btn btn-primary">Hide Info Paragraph</button>
-              <button type="button" class="btn btn-primary">Hide Table</button>
-              <button type="button" class="btn btn-primary">Hide Button</button>
-              <button type="button" class="btn btn-primary">Fade</button>
+              <button type="button" id="dark-mode-btn" class="btn btn-primary">Light Mode</button>
+              <button type="button" id="hide-paragraph-btn" class="btn btn-primary">Hide Paragraph</button>
+              <button type="button" id="hide-table-btn" class="btn btn-primary">Hide Table</button>
+              <button type="button" id="fade-nav-btn" class="btn btn-primary">Fade Navbar</button>
+              <button type="button" id="fade-table-btn" class="btn btn-primary">Fade Table</button>
             </div>
           </div>
           <div class="col-6">
             <div class="alert alert-light" id="info-box" role="alert">
-                This website implements AJAX to access JSON Objects.<br/> AJAX is a set of web development techniques that uses various web technologies on the client-side to create asynchronous web applications. With Ajax, web applications can send and retrieve data from a server asynchronously.<br/>JSON is an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays (or other serializable values).
+                <p id="info-text">This website implements AJAX to access JSON Objects.<br/> AJAX is a set of web development
+                  techniques that uses various web technologies on the client-side to 
+                  create asynchronous web applications. With Ajax, web applications can
+                  send and retrieve data from a server asynchronously.<br/>JSON is 
+                  an open standard file format and data interchange format that uses 
+                  human-readable text to store and transmit data objects consisting of 
+                  attribute–value pairs and arrays (or other serializable values).
+                </p>
               </div>
           </div>
           <div class="col">
@@ -70,8 +77,8 @@
         <div class="row">
             <div class="col">
             </div>
-            <div class="col-10 table-div">
-                <table class="table table-dark table-hover data-table">
+            <div id="table" class="col-10 table-div">
+                <table class="table table-dark table-bordered table-hover data-table">
                     <thead>
                       <tr>
                         <th scope="col">Country </th>

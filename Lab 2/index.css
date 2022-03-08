@@ -22,7 +22,7 @@ img {
 }
 
 .table-div {
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: #212529;
 }
 
@@ -31,4 +31,8 @@ img {
   border-radius: 5px;
   margin-top: 23%;
   margin-left: 0%;
+}
+
+th {
+  width: 10%;
 }
