@@ -67,7 +67,7 @@ $(document).ready(function () {
   // on click for hide table button
   $("#hide-table-btn").click(function () {
     // changes text based on whether table is shown
-    if (!tableShown) {
+    if (tableShown) {
       $("#table").hide();
       $("#hide-table-btn").html("Show Table");
     } else {
