@@ -6,6 +6,7 @@ var tableArray = new Array(7);
 let darkMode = true;
 // default values of hidden elements
 let buttonShown,
+  showLess,
   paragraphShown,
   tableShown = true;
 // cells that user clicks to change colour
@@ -16,6 +17,15 @@ $(document).ready(function () {
   $(".data-table").hide();
   $("#paragraph").hide();
   $("#collapse-btn").hide();
+
+  $("#collapse-btn").click(function () {
+    if (!showLess) {
+      $("#collapse-btn").html("View 20 rows");
+    } else {
+      $("#collapse-btn").html("View full table");
+    }
+    showLess = !showLess;
+  });
 
   $("#dark-mode-btn").click(function () {
     toggleTheme();
