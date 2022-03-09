@@ -12,6 +12,13 @@
 
 ---
 
+_No node modules required_
+
+1.  Download files or clone repository.
+2.  Have NodeJS installed and open a terminal in the projects root folder `Lab 3`
+3.  Run: `node server.js `
+4.  View `index.html` [here](http://localhost:8080/index.html)
+
 ### _Required Files_
 
 ---
