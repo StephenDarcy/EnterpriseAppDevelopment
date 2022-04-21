@@ -1,9 +1,22 @@
 document.getElementById("getAll").onclick = function () {
   getAll();
 };
+document.getElementById("getOne").onclick = function () {
+  getOne();
+};
 let getAllTable = document.getElementById("getAllTable");
+let oneBox = document.getElementById("oneBox");
+
+oneBox.style.display = "none";
+
+function getOne() {
+  getAllTable.style.display = "none";
+  oneBox.style.display = "";
+}
 
 function getAll() {
+  getAllTable.style.display = "";
+  oneBox.style.display = "none";
   let request = new XMLHttpRequest();
   request.open("GET", "/colours");
   request.send();

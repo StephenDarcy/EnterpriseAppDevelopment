@@ -4,5 +4,7 @@ module.exports = (app) => {
 
   router.get("/colours", colours.findAll);
 
+  router.get("/colours/:id", colours.findOne);
+
   app.use("/", router);
 };

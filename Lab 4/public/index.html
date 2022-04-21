@@ -46,11 +46,57 @@
             >
               View All Colours
             </button>
-            <button type="button" class="btn btn-primary">Middle</button>
+            <button
+              id="getOne"
+              onclick="getOne()"
+              type="button"
+              class="btn btn-primary"
+            >
+              View One Colour
+            </button>
             <button type="button" class="btn btn-primary">Right</button>
           </div>
         </div>
-        <div class="col-sm-10"><p id="getAllTable"></p></div>
+        <div class="col-sm-10">
+          <p id="getAllTable"></p>
+          <div id="oneBox">
+            <div class="card text-white bg-dark mb-3" style="max-width: 100%">
+              <div class="card-header">
+                <div class="row float-end align-items-center">
+                  <div class="col-auto">
+                    <label for="colourid" class="col-form-label"
+                      >Search by ID</label
+                    >
+                  </div>
+                  <div class="col-auto">
+                    <input type="password" id="colourid" class="form-control" />
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-success">
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h5 class="card-title">Colour details</h5>
+                    <p id="colour-id"></p>
+                    <p id="colour-hex"></p>
+                    <p id="colour-rgb"></p>
+                    <p id="colour-hsl"></p>
+                    <p id="colour-name"></p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p>Display Colour:</p>
+                    <div id="colour-display"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
