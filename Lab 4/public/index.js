@@ -12,6 +12,7 @@ function getAll() {
       let data = JSON.parse(request.response);
       console.log(data);
       getAllTable.innerHTML = generateTable(data);
+      setColours(data);
     } else {
       console.log("Error fetching all colours");
     }
@@ -22,16 +23,38 @@ function generateTable(data) {
   let cols = Object.keys(data[0]);
 
   let headerRow = cols.map((col) => `<th>${col}</th>`).join("");
+  headerRow += "<th>colour</th>";
+
+  //remove nested objects
+  data.forEach((element, index) => {
+    data[index].rgb =
+      "rgb(" +
+      element.rgb.r +
+      ", " +
+      element.rgb.g +
+      ", " +
+      element.rgb.b +
+      ")";
+
+    data[index].hsl =
+      "hsl(" +
+      element.hsl.h.toFixed() +
+      ", " +
+      element.hsl.s +
+      "%, " +
+      element.hsl.l +
+      "%)";
+  });
 
   let rows = data
     .map((row) => {
       let tds = cols.map((col) => `<td>${row[col]}</td>`).join("");
-      return `<tr>${tds}</tr>`;
+      return `<tr>${tds}<td id="colour${row.colorId}"></td></tr>`;
     })
     .join("");
 
   return `
-	<table>
+	<table class="table table-dark">
 		<thead>
 			<tr>${headerRow}</tr>
 		<thead>
@@ -39,4 +62,11 @@ function generateTable(data) {
 			${rows}
 		<tbody>
 	<table>`;
+}
+
+function setColours(data) {
+  data.forEach((object) => {
+    let current = document.getElementById("colour" + object.colorId);
+    current.style.backgroundColor = object.hexString;
+  });
 }
