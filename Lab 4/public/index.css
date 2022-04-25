@@ -6,3 +6,7 @@ body {
   height: 16vh;
   width: 16vw;
 }
+
+#name-input {
+  width: 40%;
+}

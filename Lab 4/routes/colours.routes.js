@@ -6,5 +6,7 @@ module.exports = (app) => {
 
   router.get("/colours/:id", colours.findOne);
 
+  router.post("/colours", colours.create);
+
   app.use("/", router);
 };

@@ -122,85 +122,49 @@
           <!-- Insert One Colour -->
           <div id="insertBox">
             <div class="card text-white bg-dark mb-3" style="max-width: 100%">
-              <div class="card-header"><h3>Insert a new colour</h3></div>
+              <div class="card-header">
+                <h3>Insert a new colour</h3>
+                <h6>
+                  Choose a colour using the colour picker and input a new name
+                </h6>
+              </div>
               <div class="card-body">
                 <div class="row">
+                  <div class="col-sm-4">
+                    <h6>Choose a colour:</h6>
+                    <input
+                      type="color"
+                      class="form-control form-control-color"
+                      id="colorInput"
+                      value="#563d7c"
+                      title="Choose your color"
+                      onchange="getInputValues()"
+                    />
+                  </div>
                   <div class="col-sm-8">
                     <h5 class="card-title">Colour details</h5>
-                    <form>
-                      <h6>Hex Value:</h6>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="hex-input"
-                        placeholder="#000000"
-                      />
-                      <h6>RGB Value:</h6>
-                      <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            placeholder="R"
-                          />
-                        </div>
-                        <div class="form-group col-md-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            placeholder="G"
-                          />
-                        </div>
-                        <div class="form-group col-md-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            placeholder="B"
-                          />
-                        </div>
-                      </div>
-                      <h6>HSL Value:</h6>
-                      <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            placeholder="H"
-                          />
-                        </div>
-                        <div class="form-group col-md-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            placeholder="S"
-                          />
-                        </div>
-                        <div class="form-group col-md-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            placeholder="L"
-                          />
-                        </div>
-                      </div>
-                      <h6>Name:</h6>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name-input"
-                        placeholder="Black"
-                      />
-                    </form>
-                  </div>
-                  <div class="col-sm-4">
-                    <h6>Display Colour:</h6>
-                    <div id="colour-display2"></div>
+                    <h6>Hex Value:</h6>
+                    <p id="insert-colour-hex">#563d7c</p>
+                    <h6>RGB Value:</h6>
+                    <p id="insert-colour-rgb">rgb(86, 61, 124)</p>
+                    <h6>HSL Value:</h6>
+                    <p id="insert-colour-hsl">hsl(264, 34%, 36%)</p>
+                    <h6 id="inputName">Name:</h6>
+                    <input
+                      id="name-input"
+                      type="text"
+                      class="form-control"
+                      aria-label="Name:"
+                      aria-describedby="inputName"
+                      value="Dark moderate violet"
+                      required
+                    />
                   </div>
                 </div>
               </div>
               <div class="card-footer">
                 <button
-                  onclick="insert()"
+                  onclick="insertOne()"
                   type="button"
                   class="btn btn-success"
                 >

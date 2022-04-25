@@ -9,3 +9,10 @@ exports.findOne = (req, res) => {
 
   res.send(data[id]);
 };
+
+exports.create = (req, res) => {
+  const data = require("../data/data.json");
+  console.log(req.body);
+
+  res.send(data);
+};
