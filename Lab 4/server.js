@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
 const publicDirPath = path.join(__dirname, "/public");
 

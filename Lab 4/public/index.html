@@ -103,19 +103,61 @@
                     <h6>Colour ID:</h6>
                     <p id="colour-id"></p>
                     <h6>Hex Value:</h6>
-                    <p id="colour-hex"></p>
+                    <input type="email" class="form-control w-50" disabled id="colour-hex"></input>
                     <h6>RGB Value:</h6>
-                    <p id="colour-rgb"></p>
+                    <input  type="email" class="form-control w-50" disabled id="colour-rgb"></input>
                     <h6>HSL Value:</h6>
-                    <p id="colour-hsl"></p>
+                    <input type="email" class="form-control w-50" disabled id="colour-hsl"></input>
                     <h6>Name:</h6>
-                    <p id="colour-name"></p>
+                    <input type="email" class="form-control w-50" disabled id="colour-name"></input>
                   </div>
                   <div class="col-sm-4">
                     <h6>Display Colour:</h6>
                     <div id="colour-display"></div>
                   </div>
                 </div>
+              </div>
+              <div class="card-footer">
+                <button
+                onclick="setBackground()"
+                type="button"
+                id="background-btn"
+                class="btn btn-primary m-2"
+              >
+                Set As Background
+              </button>
+                <button
+                  onclick="deleteOne()"
+                  type="button"
+                  id="delete-btn"
+                  class="btn btn-danger float-end m-2"
+                >
+                  Delete
+                </button>
+                <button
+                  onclick="editOne()"
+                  type="button"
+                  id="edit-btn"
+                  class="btn btn-primary float-end m-2"
+                >
+                  Edit
+                </button>
+                <button
+                id="confirm-btn"
+                onclick="confirmUpdate()"
+                type="button"
+                class="btn btn-success float-end m-2"
+              >
+                Confirm
+              </button>
+              <button
+              id="cancel-btn"
+              onclick="cancelUpdate()"
+              type="button"
+              class="btn btn-danger float-end m-2"
+            >
+              Cancel
+            </button>
               </div>
             </div>
           </div>

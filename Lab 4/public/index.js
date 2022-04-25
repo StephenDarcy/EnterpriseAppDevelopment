@@ -1,18 +1,36 @@
-document.getElementById("getAll").onclick = function () {
-  getAll();
-};
-document.getElementById("getOne").onclick = function () {
-  getOne();
-};
-document.getElementById("insertOne").onclick = function () {
-  insertOne();
-};
 let getAllTable = document.getElementById("getAllTable");
 let oneBox = document.getElementById("oneBox");
 let insertBox = document.getElementById("insertBox");
+let confirmButton = document.getElementById("confirm-btn");
+let cancelButton = document.getElementById("cancel-btn");
 
+cancelButton.style.display = "none";
+confirmButton.style.display = "none";
 oneBox.style.display = "none";
 insertBox.style.display = "none";
+
+let cookies = document.cookie.split(";");
+let cookieColour = cookies[1].split("=");
+document.body.style.background = "#" + cookieColour[1];
+
+// store original values when user presses edit
+let hexOriginal, rgbOriginal, hslOriginal, nameOriginal;
+
+async function deleteOne() {
+  let id = document.getElementById("colour-id").innerHTML;
+  const response = await fetch(`/colours/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+  });
+  console.log(response.json());
+}
 
 function insertOne() {
   oneBox.style.display = "none";
@@ -58,10 +76,16 @@ function getOne() {
   var currentColour;
   let inputValue = document.getElementById("colourid").value;
 
+  let cookies = document.cookie.split(";");
+  let currentCookie = cookies[0].split("=");
+  console.log(cookies);
+
   if (inputValue) {
     currentColour = inputValue;
+  } else if (currentCookie[1]) {
+    currentColour = currentCookie[1];
   } else {
-    currentColour = 0;
+    currentColour = 1;
   }
 
   let request = new XMLHttpRequest();
@@ -77,6 +101,91 @@ function getOne() {
   };
 }
 
+function setBackground() {
+  let hex = document.getElementById("colour-hex");
+  hex.disabled = false;
+  let backgroundColor = hex.value;
+  updateBackground(backgroundColor);
+}
+
+async function updateBackground(hex) {
+  hex = hex.slice(1);
+  await fetch(`/background/${hex}`, {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+  });
+  let cookies = document.cookie.split(";");
+  let cookieColour = cookies[1].split("=");
+  document.body.style.background = "#" + cookieColour[1];
+}
+
+function confirmUpdate() {
+  newHex = document.getElementById("colour-hex").value;
+  newRgb = document.getElementById("colour-rgb").value;
+  newHsl = document.getElementById("colour-hsl").value;
+  newName = document.getElementById("colour-name").value;
+  id = document.getElementById("colour-id").innerHTML;
+
+  let json = {
+    hex: newHex,
+    rgb: newRgb,
+    hsl: newHsl,
+    name: newName,
+  };
+
+  const response = updateData(json, id);
+  console.log(response);
+}
+
+async function updateData(data, id) {
+  const response = await fetch(`/colours/${id}`, {
+    method: "PUT",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
+
+function cancelUpdate() {
+  let editButton = document.getElementById("edit-btn");
+  let confirmButton = document.getElementById("confirm-btn");
+  let cancelButton = document.getElementById("cancel-btn");
+  let deleteButton = document.getElementById("delete-btn");
+  let hex = document.getElementById("colour-hex");
+  let rgb = document.getElementById("colour-rgb");
+  let hsl = document.getElementById("colour-hsl");
+  let name = document.getElementById("colour-name");
+
+  deleteButton.style.display = "";
+  editButton.style.display = "";
+  cancelButton.style.display = "none";
+  confirmButton.style.display = "none";
+
+  hex.disabled = true;
+  rgb.disabled = true;
+  hsl.disabled = true;
+  name.disabled = true;
+
+  hex.value = hexOriginal;
+  rgb.value = rgbOriginal;
+  hsl.value = hslOriginal;
+  name.value = nameOriginal;
+}
+
 function populateOne(data) {
   let id = document.getElementById("colour-id");
   let hex = document.getElementById("colour-hex");
@@ -87,10 +196,9 @@ function populateOne(data) {
 
   box.style.backgroundColor = data.hexString;
   id.innerHTML = data.colorId;
-  hex.innerHTML = data.hexString;
-  rgb.innerHTML =
-    "rgb(" + data.rgb.r + ", " + data.rgb.g + ", " + data.rgb.b + ")";
-  hsl.innerHTML =
+  hex.value = data.hexString;
+  rgb.value = "rgb(" + data.rgb.r + ", " + data.rgb.g + ", " + data.rgb.b + ")";
+  hsl.value =
     "hsl(" +
     data.hsl.h.toFixed() +
     ", " +
@@ -98,7 +206,33 @@ function populateOne(data) {
     "%, " +
     data.hsl.l +
     "%)";
-  name.innerHTML = data.name;
+  name.value = data.name;
+}
+
+function editOne() {
+  let hex = document.getElementById("colour-hex");
+  let rgb = document.getElementById("colour-rgb");
+  let hsl = document.getElementById("colour-hsl");
+  let name = document.getElementById("colour-name");
+  let editButton = document.getElementById("edit-btn");
+  let confirmButton = document.getElementById("confirm-btn");
+  let cancelButton = document.getElementById("cancel-btn");
+  let deleteButton = document.getElementById("delete-btn");
+  // store original values when user presses edit
+  hexOriginal = document.getElementById("colour-hex").value;
+  rgbOriginal = document.getElementById("colour-rgb").value;
+  hslOriginal = document.getElementById("colour-hsl").value;
+  nameOriginal = document.getElementById("colour-name").value;
+
+  deleteButton.style.display = "none";
+  editButton.style.display = "none";
+  cancelButton.style.display = "";
+  confirmButton.style.display = "";
+
+  hex.disabled = false;
+  rgb.disabled = false;
+  hsl.disabled = false;
+  name.disabled = false;
 }
 
 function getAll() {
@@ -111,7 +245,6 @@ function getAll() {
   request.onload = () => {
     if (request.status === 200) {
       let data = JSON.parse(request.response);
-      console.log(data);
       getAllTable.innerHTML = generateTable(data);
       setColours(data);
     } else {
