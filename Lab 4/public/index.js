@@ -3,15 +3,16 @@ let oneBox = document.getElementById("oneBox");
 let insertBox = document.getElementById("insertBox");
 let confirmButton = document.getElementById("confirm-btn");
 let cancelButton = document.getElementById("cancel-btn");
+let modalBody = document.getElementById("modal-body");
+let modalTitle = document.getElementById("modal-title");
 
 cancelButton.style.display = "none";
 confirmButton.style.display = "none";
 oneBox.style.display = "none";
 insertBox.style.display = "none";
 
-let cookies = document.cookie.split(";");
-let cookieColour = cookies[1].split("=");
-document.body.style.background = "#" + cookieColour[1];
+let cookieColour = getCookie("colour");
+document.body.style.background = "#" + cookieColour;
 
 // store original values when user presses edit
 let hexOriginal, rgbOriginal, hslOriginal, nameOriginal;
@@ -29,14 +30,9 @@ async function deleteOne() {
     redirect: "follow",
     referrerPolicy: "no-referrer",
   });
-  console.log(response.json());
 }
 
 function insertOne() {
-  oneBox.style.display = "none";
-  getAllTable.style.display = "none";
-  insertBox.style.display = "";
-
   let hexValue = document.getElementById("insert-colour-hex").innerHTML;
   let rgbValue = document.getElementById("insert-colour-rgb").innerHTML;
   let hslValue = document.getElementById("insert-colour-hsl").innerHTML;
@@ -53,8 +49,20 @@ function insertOne() {
   console.log(response);
 }
 
+// taken from https://www.tabnine.com/academy/javascript/how-to-get-cookies/
+function getCookie(cName) {
+  const name = cName + "=";
+  const cDecoded = decodeURIComponent(document.cookie); //to be careful
+  const cArr = cDecoded.split("; ");
+  let res;
+  cArr.forEach((val) => {
+    if (val.indexOf(name) === 0) res = val.substring(name.length);
+  });
+  return res;
+}
+
 async function postData(data) {
-  const response = await fetch("/colours", {
+  await fetch("/colours", {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
@@ -65,8 +73,20 @@ async function postData(data) {
     redirect: "follow",
     referrerPolicy: "no-referrer",
     body: JSON.stringify(data),
+  }).then((res) => {
+    res.json().then((data) => {
+      $("#modal").modal("show");
+      modalTitle.innerHTML = "Creation Complete";
+      modalBody.href = data.message;
+      console.log(data);
+    });
   });
-  return response.json();
+}
+
+function insert() {
+  oneBox.style.display = "none";
+  getAllTable.style.display = "none";
+  insertBox.style.display = "";
 }
 
 function getOne() {
@@ -76,14 +96,12 @@ function getOne() {
   var currentColour;
   let inputValue = document.getElementById("colourid").value;
 
-  let cookies = document.cookie.split(";");
-  let currentCookie = cookies[0].split("=");
-  console.log(cookies);
+  let cookie = getCookie("current");
 
   if (inputValue) {
     currentColour = inputValue;
-  } else if (currentCookie[1]) {
-    currentColour = currentCookie[1];
+  } else if (cookie) {
+    currentColour = cookie;
   } else {
     currentColour = 1;
   }
@@ -121,9 +139,8 @@ async function updateBackground(hex) {
     redirect: "follow",
     referrerPolicy: "no-referrer",
   });
-  let cookies = document.cookie.split(";");
-  let cookieColour = cookies[1].split("=");
-  document.body.style.background = "#" + cookieColour[1];
+  let cookie = getCookie("colour");
+  document.body.style.background = "#" + cookie;
 }
 
 function confirmUpdate() {
@@ -140,12 +157,11 @@ function confirmUpdate() {
     name: newName,
   };
 
-  const response = updateData(json, id);
-  console.log(response);
+  updateData(json, id);
 }
 
 async function updateData(data, id) {
-  const response = await fetch(`/colours/${id}`, {
+  await fetch(`/colours/${id}`, {
     method: "PUT",
     mode: "cors",
     cache: "no-cache",
@@ -156,8 +172,14 @@ async function updateData(data, id) {
     redirect: "follow",
     referrerPolicy: "no-referrer",
     body: JSON.stringify(data),
+  }).then((res) => {
+    res.json().then((data) => {
+      $("#modal").modal("show");
+      modalTitle.innerHTML = "Update Complete";
+      modalBody.href = data.message;
+      console.log(data);
+    });
   });
-  return response.json();
 }
 
 function cancelUpdate() {

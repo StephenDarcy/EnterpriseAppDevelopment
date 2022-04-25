@@ -5,7 +5,6 @@ var path = require("path");
 exports.background = (req, res) => {
   let hexValue = req.params.hex;
   res.cookie("colour", hexValue).send("cookie set");
-  console.log("first");
 };
 
 exports.findAll = (req, res) => {
@@ -46,7 +45,15 @@ exports.updateOne = (req, res) => {
     }
   });
 
-  res.send(data[parseInt(id)]);
+  fs.writeFile(
+    path.join(__dirname, fileName),
+    JSON.stringify(data, null, 2),
+    function writeJSON(err) {
+      if (err) return console.log(err);
+    }
+  );
+
+  res.send({ message: "http://localhost:8080/colours/" + id });
 };
 
 exports.deleteOne = (req, res) => {
@@ -87,7 +94,14 @@ exports.create = (req, res) => {
   };
   try {
     data.push(newColourObj);
-    res.send("http://localhost:8080/colours/" + currentId);
+    fs.writeFile(
+      path.join(__dirname, fileName),
+      JSON.stringify(data, null, 2),
+      function writeJSON(err) {
+        if (err) return console.log(err);
+      }
+    );
+    res.send({ message: "http://localhost:8080/colours/" + currentId });
   } catch (error) {
     console.log(error);
     res.send("New colour could not be added");
