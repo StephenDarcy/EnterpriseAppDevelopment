@@ -1,0 +1,17 @@
+.card {
+  height: 40vh;
+}
+
+body {
+  background-color: #3b444b;
+}
+
+.container {
+  margin-top: 5vh;
+  height: 85vh;
+  margin-bottom: 5vh;
+}
+
+.navbar {
+  height: 5vh;
+}
