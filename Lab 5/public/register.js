@@ -34,7 +34,6 @@ async function createRequest(payload) {
   await fetch("/users/", {
     method: "POST",
     mode: "cors",
-    cache: "no-cache",
     credentials: "same-origin",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +44,9 @@ async function createRequest(payload) {
   }).then((res) => {
     res.json().then((data) => {
       $("#alert").html(data);
-      console.log(data);
+      if (data == "success") {
+        window.location.pathname = "/home";
+      }
     });
   });
 }

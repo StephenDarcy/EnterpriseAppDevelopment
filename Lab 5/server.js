@@ -2,6 +2,43 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const publicDirPath = path.join(__dirname, "/public");
+const redis = require("redis");
+const connect = require("connect-redis");
+const session = require("express-session");
+
+const store = connect(session);
+
+const redisClient = redis.createClient({
+  port: 6379,
+  host: "localhost",
+  legacyMode: true,
+});
+
+(async () => {
+  await redisClient.connect();
+})();
+
+redisClient.on("error", function (error) {
+  console.log(error);
+});
+redisClient.on("connect", function (error) {
+  console.log("Connected to Redis!");
+});
+
+app.use(
+  session({
+    store: new store({ client: redisClient }),
+    secret: "enterprise",
+    saveUninitialized: false,
+    resave: false,
+    name: "session",
+    cookie: {
+      secure: false,
+      httpOnly: true,
+      maxAge: 1000 * 60 * 120, // 2 hour session
+    },
+  })
+);
 
 const db = require("./models");
 db.mongoose
@@ -17,18 +54,16 @@ db.mongoose
     process.exit();
   });
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname, "/public")));
+
+app.set("views", path.join(__dirname, "/views"));
+app.engine("html", require("ejs").renderFile);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 require("./routes/user.routes")(app);
-
-app.get("/", function (req, res) {
-  res.sendFile(path.join(publicDirPath, "/index.html"));
-});
-app.use("*", function (req, res) {
-  res.status(404).sendFile(publicDirPath + "/404.html");
-});
+require("./routes/page.routes")(app);
 
 const PORT = 8080;
 app.listen(PORT, () => {

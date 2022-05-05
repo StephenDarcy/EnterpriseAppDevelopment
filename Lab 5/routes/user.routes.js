@@ -12,5 +12,7 @@ module.exports = (app) => {
 
   router.get("/getUser", users.findOne);
 
+  router.get("/logout", users.logout);
+
   app.use("/users", router);
 };

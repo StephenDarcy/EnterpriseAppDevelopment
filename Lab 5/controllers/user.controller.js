@@ -7,9 +7,7 @@ exports.create = async (req, res) => {
     console.log(req.body);
     // Validate request
     if (!req.body.username || !req.body.password) {
-      res
-        .status(400)
-        .send({ message: "Username/password/email can not be empty!" });
+      res.status(400).json("Username/password/email can not be empty!");
       return;
     }
 
@@ -21,7 +19,7 @@ exports.create = async (req, res) => {
     // validating username not taken
     const usernameTaken = await User.findOne({ username: username });
     if (usernameTaken) {
-      return res.status(400).json({ error: "This username is taken" });
+      return res.status(400).json("This username is taken");
     }
 
     // hashing user password
@@ -35,12 +33,15 @@ exports.create = async (req, res) => {
     // saving user
     const savedUser = await newUser.save();
     if (!savedUser) {
-      return res.status(400).json({ error: "User could not be saved" });
+      return res.status(400).json("User could not be saved");
     } else {
       console.log("User added");
     }
 
-    return res.status(200).json({ message: "User saved" });
+    req.session.userID = savedUser._id;
+    req.session.user = savedUser;
+
+    res.json("success");
   } catch (err) {
     console.log("Signup failed");
     console.log(err);
@@ -109,22 +110,20 @@ exports.update = (req, res) => {
 
 // user login
 exports.login = async (req, res) => {
-  console.log("Attempting to login..");
-  console.log(req.body);
   try {
     // Validate request
-    if (!req.body.email || !req.body.password) {
-      res.status(400).send({ message: "Password/email can not be empty!" });
+    if (!req.body.username || !req.body.password) {
+      res.status(400).json("Invalid username/password");
       return;
     }
 
-    const email = req.body.email;
+    const username = req.body.username;
     const password = req.body.password;
 
     // validating user exists
-    const existingUser = await User.findOne({ email: email });
+    const existingUser = await User.findOne({ username: username });
     if (!existingUser) {
-      res.status(401).send({ message: "Invalid email/password" });
+      res.status(401).json("Username taken");
       return;
     }
 
@@ -136,28 +135,23 @@ exports.login = async (req, res) => {
 
     // if not correct password
     if (!passwordValidate) {
-      res.status(401).send({ message: "Invalid email/password" });
+      res.status(401).json("Invalid username/password");
       return;
     }
 
-    // create jwt token to sign user in
-    const token = jwt.sign(
-      {
-        userID: existingUser._id,
-      },
-      process.env.JWT
-    );
-    console.log("Login success, token sending...");
-    // send the token
-    res
-      .cookie("token", token, {
-        sameSite: "none",
-        secure: true,
-        httpOnly: true,
-      })
-      .send();
+    req.session.userID = existingUser._id;
+    req.session.user = existingUser;
+
+    res.json("success");
   } catch (err) {
     console.log(err);
     res.status(500).send();
   }
+};
+// user logout
+exports.logout = async (req, res) => {
+  if (req.session.user) {
+    req.session.destroy();
+  }
+  res.redirect("/");
 };
