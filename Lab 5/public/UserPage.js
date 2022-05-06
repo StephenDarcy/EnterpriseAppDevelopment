@@ -165,3 +165,18 @@ async function updateProfile(payload) {
     });
   });
 }
+
+async function logout() {
+  await fetch("/users/logout", {
+    method: "GET",
+    mode: "cors",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+  }).then(() => {
+    window.location.pathname = "/";
+  });
+}

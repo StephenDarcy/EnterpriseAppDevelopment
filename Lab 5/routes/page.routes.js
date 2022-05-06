@@ -16,6 +16,14 @@ module.exports = (app) => {
     res.render("index.html");
   });
 
+  // static routes
+  router.get("/register", (req, res) => {
+    if (req.session.user) {
+      return res.redirect("/home");
+    }
+    res.render("register.html");
+  });
+
   router.get("*", function (req, res) {
     res.status(404).render("404.html");
   });
