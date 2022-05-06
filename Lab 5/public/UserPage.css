@@ -12,8 +12,13 @@ body {
   height: 5vh;
 }
 
+.labels {
+  color: #e0e0e0;
+}
+
 .user-card-full {
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .card {

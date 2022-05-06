@@ -13,17 +13,59 @@ module.exports = (mongoose) => {
         required: "Password is required",
         trim: true,
       },
+      firstname: {
+        type: String,
+        default: "Firstname",
+      },
+      surname: {
+        type: String,
+        default: "Surname",
+      },
       avatar: Buffer,
-      DOB: String,
-      email: String,
-      address: String,
-      gender: String,
-      city: String,
-      hobbies: String,
-      civil: String,
-      profession: String,
-      salary: String,
-      sport: String,
+      dob: {
+        type: String,
+        default: "Date of Birth",
+      },
+      email: {
+        type: String,
+        default: "Email",
+      },
+      address: {
+        type: String,
+        default: "Address",
+      },
+      gender: {
+        type: String,
+        default: "Male/Female",
+      },
+      city: {
+        type: String,
+        default: "Dublin",
+      },
+      hobbies: {
+        type: String,
+        default: "Football",
+      },
+      civil: {
+        type: String,
+        default: "Single",
+      },
+      profession: {
+        type: String,
+        default: "Web Developer",
+      },
+      salary: {
+        type: String,
+        default: "$100,000",
+      },
+      sport: {
+        type: String,
+        default: "Hockey",
+      },
+      country: {
+        type: String,
+        default: "Ireland",
+      },
     },
     {
       timestamps: true,

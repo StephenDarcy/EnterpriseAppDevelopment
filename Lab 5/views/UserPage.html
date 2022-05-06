@@ -49,31 +49,51 @@
                   alt="User-Profile-Image"
                 />
               </div>
-              <h6 class="f-w-600">Hembo Tingor</h6>
-              <p>Web Designer</p>
+              <h6 class="f-w-600" id="username"></h6>
+              <p id="pro"></p>
             </div>
           </div>
           <div class="col-sm-8">
             <div class="card-block">
-              <div class="row mt-2">
-                <div class="col-md-6"><label class="labels">Name</label><p id="fname"></p></div>
-                <div class="col-md-6"><label class="labels">Surname</label><p id="sname"></p></div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-12"><label class="labels">Date of Birth</label><p id="dob"></p></div>
-                <div class="col-md-12"><label class="labels">Gender</label><p id="gender"></p></div>
-                <div class="col-md-12"><label class="labels">Address</label><p id="address"></p></div>
-                <div class="col-md-12"><label class="labels">Profession</label><p id="profession"></p></div>
-                <div class="col-md-12"><label class="labels">City of Birth</label><p id="city"></p></div>
-                <div class="col-md-12"><label class="labels">Civil State</label><p id="civil"></p></div>
-                <div class="col-md-12"><label class="labels">Salary</label><p id="salary"></p></div>
-                <div class="col-md-12"><label class="labels">Hobbies</label><p id="hobbies"></p></div>
-                <div class="col-md-12"><label class="labels">Favourite Sport</label><p id="sport"></p></div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6"><label class="labels">Country</label><p id="country"></p></div>
-            </div>
-            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" onclick="editProfile()">Edit Profile</button></div>
+              <div class="row">
+                <div class="col-md-6 mt-2"><label class="labels">Name</label><input placeholder="enter firstname name" type="text" class="form-control w-100" disabled id="firstname"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Surname</label><input placeholder="enter surname" type="text" class="form-control w-100" disabled id="surname"></p></div>
+                <div class="col-md-6 mt-2"><label class="labels">Date of Birth</label><input placeholder="enter dob" type="date" class="form-control w-100" disabled id="dob"></input></div>
+                <div class="col-md-6 mt-2"><label class="labels">Gender</label><input placeholder="enter gender" type="text" class="form-control w-100" disabled id="gender"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Address</label><input placeholder="enter address" type="text" class="form-control w-100" disabled id="address"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Profession</label><input placeholder="enter Profession" type="text" class="form-control w-100" disabled id="profession"></div>
+                <div class="col-md-6 mt-2"><label class="labels">City of Birth</label><input placeholder="enter city" type="text" class="form-control w-100" disabled id="city"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Civil State</label><input placeholder="enter civil state" type="text" class="form-control w-100" disabled id="civil"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Salary</label><input placeholder="enter salary" type="text" class="form-control w-100" disabled id="salary"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Hobbies</label><input placeholder="enter hobbies" type="text" class="form-control w-100" disabled id="hobbies"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Favourite Sport</label><input placeholder="enter sport" type="text" class="form-control w-100" disabled id="sport"></div>
+                <div class="col-md-6 mt-2"><label class="labels">Country</label><input placeholder="enter country" type="text" class="form-control w-100" disabled id="country"></p></div>
+              </div>
+            <div class="mt-5 text-center">                
+              <button
+              onclick="editOne()"
+              type="button"
+              id="edit-btn"
+              class="btn btn-primary float-end m-2"
+            >
+              Edit
+            </button>
+            <button
+            id="confirm-btn"
+            onclick="confirmUpdate()"
+            type="button"
+            class="btn btn-success float-end m-2"
+          >
+            Confirm
+          </button>
+          <button
+          id="cancel-btn"
+          onclick="cancelUpdate()"
+          type="button"
+          class="btn btn-danger float-end m-2"
+        >
+          Cancel
+        </button></div>
         </div>
             </div>
           </div>

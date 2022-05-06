@@ -74,10 +74,10 @@ exports.avatar = async (req, res) => {
 // Find a single user with an id
 exports.findOne = (req, res) => {
   // get user ID from token
-  const token = req.cookies.token;
-  if (!token) return res.json("no cookie");
+  const user = req.session.user;
+  console.log(user);
 
-  let id = getIdFromToken(token);
+  let id = user.id;
 
   User.findById(id)
     .then((user) => res.json(user))
@@ -87,18 +87,25 @@ exports.findOne = (req, res) => {
 // Update a user by the id in the request
 exports.update = (req, res) => {
   // get user ID from token
-  const token = req.cookies.token;
-  if (!token) return res.json("no cookie");
+  const user = req.session.user;
+  console.log(user);
 
-  let id = getIdFromToken(token);
+  let id = user.id;
 
   User.findById(id)
     .then((user) => {
-      user.firstName = req.body.firstName;
+      user.firstname = req.body.firstname;
       user.surname = req.body.surname;
-      user.number = req.body.number;
+      user.dob = req.body.dob;
       user.country = req.body.country;
       user.city = req.body.city;
+      user.gender = req.body.gender;
+      user.address = req.body.address;
+      user.profession = req.body.profession;
+      user.civil = req.body.civil;
+      user.salary = req.body.salary;
+      user.hobbies = req.body.hobbies;
+      user.sport = req.body.sport;
 
       user
         .save()
